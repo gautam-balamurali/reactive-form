@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {
-        path: '',
+        path: 'home',
         redirectTo: RouteConstants.ROUTES.HOME,
         pathMatch: 'full',
       },
