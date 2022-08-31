@@ -1,0 +1,29 @@
+<form [formGroup]="reactiveForm">
+  <ng-container *ngFor="let controls of jsonFormData">
+    <mat-form-field>
+      <mat-label *ngIf="controls.type === 'text'">{{
+        controls.label
+      }}</mat-label>
+      <input
+        matInput
+        *ngIf="controls.type === 'text'"
+        [type]="controls.type"
+        [formControlName]="controls.field"
+      />
+    </mat-form-field>
+    <br />
+    <mat-label *ngIf="controls.type === 'check'">{{
+      controls.label
+    }}</mat-label>
+    <input
+      *ngIf="controls.type === 'check'"
+      type="checkbox"
+      [formControlName]="controls.field"
+    />
+    <br />
+  </ng-container>
+  <br />
+  <button type="submit" (click)="onSubmit()" [disabled]="!reactiveForm.valid">
+    Submit
+  </button>
+</form>
