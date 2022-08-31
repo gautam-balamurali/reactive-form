@@ -32,6 +32,10 @@ export class RenderFormComponent implements OnChanges {
     }
   }
 
+  /**
+   * Creates form
+   * @param formData 
+   */
   createForm(formData: JsonFormDataModel[]) {
     const controls = {};
     formData.forEach((res) => {
@@ -44,6 +48,9 @@ export class RenderFormComponent implements OnChanges {
     this.reactiveForm = new FormGroup(controls);
   }
 
+  /**
+   * Determines whether submit on
+   */
   onSubmit() {
     console.log(this.reactiveForm.value);
   }
