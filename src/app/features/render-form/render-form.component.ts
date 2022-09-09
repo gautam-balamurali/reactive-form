@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Input,
-  OnChanges,
-  SimpleChanges,
-} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -17,28 +11,25 @@ import { JsonFormDataModel } from 'src/app/models';
   selector: 'app-render-form',
   templateUrl: './render-form.component.html',
   styleUrls: ['./render-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenderFormComponent implements OnChanges {
+export class RenderFormComponent implements OnInit {
   @Input() jsonFormData: JsonFormDataModel[];
 
   reactiveForm: FormGroup = this._formBuilder.group({});
 
   constructor(private _formBuilder: FormBuilder) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['jsonFormData'].firstChange) {
-      this.createForm(this.jsonFormData);
-    }
+  ngOnInit(): void {
+    this.createForm(this.jsonFormData);
   }
 
   /**
    * Creates form
-   * @param formData 
+   * @param formData
    */
   createForm(formData: JsonFormDataModel[]) {
     const controls = {};
-    formData.forEach((res) => {
+    formData?.forEach((res) => {
       const validationsArray = [];
       if (res.mandatory) {
         validationsArray.push(Validators.required);
@@ -54,6 +45,4 @@ export class RenderFormComponent implements OnChanges {
   onSubmit() {
     console.log(this.reactiveForm.value);
   }
-
-  ngOnInit(): void {}
 }

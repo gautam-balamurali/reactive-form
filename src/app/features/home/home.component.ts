@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { JsonFormDataModel } from 'src/app/models';
+import JsonForm from '../../../assets/to-render.json';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +10,9 @@ import { JsonFormDataModel } from 'src/app/models';
 export class HomeComponent implements OnInit {
   formData: JsonFormDataModel[];
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.http
-      .get('/assets/to-render.json')
-      .subscribe((formData: JsonFormDataModel[]) => {
-        this.formData = formData;
-      });
+    this.formData = JsonForm;
   }
 }
