@@ -1,17 +1,19 @@
 <form [formGroup]="reactiveForm">
   <ng-container *ngFor="let controls of jsonFormData">
     <mat-form-field
-      *ngIf="controls.type === 'text' && controls.hidden === 'false'"
+      *ngIf="controls.type === 'text' && isFormFieldVisible(controls)"
     >
       <mat-label>{{ controls.label }}</mat-label>
       <input
         matInput
         [type]="controls.type"
         [formControlName]="controls.field"
+        [placeholder]="controls.label"
       />
     </mat-form-field>
     <mat-checkbox
-      *ngIf="controls.type === 'check'"
+      labelPosition="before"
+      *ngIf="controls.type === 'check' && isFormFieldVisible(controls)"
       [formControlName]="controls.field"
       >{{ controls.label }}</mat-checkbox
     >

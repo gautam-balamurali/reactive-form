@@ -1,3 +1,19 @@
+<div class="toggle-section">
+  <hr />
+  <div class="toggle-fields">
+    <mat-label>Toggle Fields Visibility: </mat-label>
+    <ng-container *ngFor="let field of fieldList">
+      <mat-checkbox color="primary" (change)="selectField(field)" [checked]="field.checked">
+        {{ field.label }}
+      </mat-checkbox>
+    </ng-container>
+  </div>
+  <hr />
+</div>
 <div class="formBody">
-  <app-render-form [jsonFormData]="formData"></app-render-form>
+  <app-render-form
+    #renderForm
+    [jsonFormData]="formData"
+    [visibleFields]="fieldList"
+  ></app-render-form>
 </div>
