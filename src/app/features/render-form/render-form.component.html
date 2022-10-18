@@ -1,12 +1,9 @@
-<form [formGroup]="reactiveForm">
+<form [formGroup]="reactiveForm" *ngIf="jsonFormData">
   <ng-container *ngFor="let controls of jsonFormData">
-    <mat-form-field>
-      <mat-label *ngIf="controls.type === 'text'">{{
-        controls.label
-      }}</mat-label>
+    <mat-form-field *ngIf="controls.type === 'text'">
+      <mat-label>{{ controls.label }}</mat-label>
       <input
         matInput
-        *ngIf="controls.type === 'text'"
         [type]="controls.type"
         [formControlName]="controls.field"
       />

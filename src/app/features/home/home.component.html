@@ -4,6 +4,6 @@
 <mat-toolbar class="header-hidden">
   <span></span>
 </mat-toolbar>
-<div class="formBody">
+<div class="formBody" *ngIf="formData$ | async as formData ">
   <app-render-form [jsonFormData]="formData"></app-render-form>
 </div>

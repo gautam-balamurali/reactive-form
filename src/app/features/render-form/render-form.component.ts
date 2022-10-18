@@ -3,6 +3,7 @@ import {
   Component,
   Input,
   OnChanges,
+  OnInit,
   SimpleChanges,
 } from '@angular/core';
 import {
@@ -11,6 +12,7 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { EmitFormValueService } from 'src/app/core/services/emit-form-value/emit-form-value.service';
 import { JsonFormDataModel } from 'src/app/models';
 
 @Component({
@@ -19,22 +21,25 @@ import { JsonFormDataModel } from 'src/app/models';
   styleUrls: ['./render-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class RenderFormComponent implements OnChanges {
+export class RenderFormComponent implements OnInit {
   @Input() jsonFormData: JsonFormDataModel[];
 
   reactiveForm: FormGroup = this._formBuilder.group({});
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    public emitFormValueService: EmitFormValueService
+  ) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (!changes['jsonFormData'].firstChange) {
-      this.createForm(this.jsonFormData);
-    }
-  }
+  // ngOnChanges(changes: SimpleChanges): void {
+  //   if (!changes['jsonFormData'].firstChange) {
+  //     this.createForm(this.jsonFormData);
+  //   }
+  // }
 
   /**
    * Creates form
-   * @param formData 
+   * @param formData
    */
   createForm(formData: JsonFormDataModel[]) {
     const controls = {};
@@ -53,7 +58,10 @@ export class RenderFormComponent implements OnChanges {
    */
   onSubmit() {
     console.log(this.reactiveForm.value);
+    this.emitFormValueService.submitFormValue(this.reactiveForm.value);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.createForm(this.jsonFormData);
+  }
 }
