@@ -5,3 +5,9 @@ export interface JsonFormDataModel {
   hidden: string;
   mandatory?: boolean;
 }
+
+export interface ToggleFieldListModel {
+  fieldName: string;
+  label: string;
+  checked: boolean;
+}

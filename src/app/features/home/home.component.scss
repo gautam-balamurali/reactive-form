@@ -6,11 +6,33 @@
   margin-top: 20px;
 }
 
-.header-fixed {
-  position: fixed;
-  z-index: 999;
+.toggle-section {
+  background-color: #f0f8ff;
+  display: block;
+  .toggle-fields {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 10px;
+    mat-label {
+      padding: 0 1rem 0 1rem;
+      font-weight: 500;
+    }
+  }
 }
 
-.header-hidden {
-  visibility: hidden;
+mat-checkbox {
+  padding-right: 1rem;
+}
+
+@media (max-width: 480px) {
+  .toggle-section {
+    width: 100%;
+    .toggle-fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
