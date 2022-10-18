@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "gerimedica-angular-challenge": {
+    "reactive-form": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gerimedica-angular-challenge:build:production"
+              "browserTarget": "reactive-form:build:production"
             },
             "development": {
-              "browserTarget": "gerimedica-angular-challenge:build:development"
+              "browserTarget": "reactive-form:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gerimedica-angular-challenge:build"
+            "browserTarget": "reactive-form:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "gerimedica-angular-challenge"
+  "defaultProject": "reactive-form"
 }

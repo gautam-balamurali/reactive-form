@@ -16,9 +16,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'gerimedica-angular-challenge'`, () => {
+  it(`should have as title 'reactive-form'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gerimedica-angular-challenge');
+    expect(app.title).toEqual('reactive-form');
   });
 });

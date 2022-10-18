@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## View Live
 
-[Reactive Form Demo](https://gautam-balamurali.github.io/gerimedica-angular-challenge/home)
+[Reactive Form Demo](https://gautam-balamurali.github.io/reactive-form/home)
